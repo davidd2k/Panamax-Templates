@@ -1,0 +1,37 @@
+---
+name: Gitlab 7.1.1 Single Node
+description: ''
+keywords: ''
+type: Default
+documentation: |
+  GitLab - Single node
+  =======================
+
+  ##System requirements
+  Recommend 2GB of RAM for your Host and 2 Cores for best performance
+
+  To view the GUI after launching the template, browse to http://panamax.local:10080.
+
+  ##Running
+  __NOTE__: Please allow a few minutes for the GitLab service to start. Watch the journal output for the  message that it is complete.
+
+  Login using the default username and password:
+
+  username: **root**
+
+  password: **5iveL!fe**
+images:
+- name: sameersbn_gitlab_latest
+  source: sameersbn/gitlab:7.1.1
+  category: GitLab
+  type: Default
+  ports:
+  - host_port: '10022'
+    container_port: '22'
+  - host_port: '10080'
+    container_port: '80'
+  environment:
+  - variable: GITLAB_PORT
+    value: '10080'
+  - variable: GITLAB_SSH_PORT
+    value: '10022'
